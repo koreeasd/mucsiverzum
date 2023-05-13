@@ -1,4 +1,226 @@
 {
-  "extends": "next/core-web-vitals",
-  "parser": "@babel/eslint-parser"
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "compat",
+    "@typescript-eslint",
+    "jsx-a11y",
+    "react",
+    "prettier",
+    "simple-import-sort"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreStrings": true
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "jsx-a11y/label-has-for": 1,
+    "no-plusplus": 0,
+    "no-duplicate-imports": "error",
+    "linebreak-style": 0,
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "to",
+          "hrefLeft",
+          "hrefRight"
+        ],
+        "aspects": [
+          "noHref",
+          "invalidHref",
+          "preferButton"
+        ]
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".tsx"
+        ]
+      }
+    ],
+    "object-curly-newline": "off",
+    "sort-imports": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Side effect imports.
+          [
+            "^\\u0000"
+          ],
+          // react, prop-types
+          [
+            "^react$",
+            "prop-types"
+          ],
+          // Packages.
+          // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
+          [
+            "^@?\\w"
+          ],
+          // services
+          [
+            "^@services"
+          ],
+          // helpers
+          [
+            "^@helpers",
+            "^[^.].*helpers?$"
+          ],
+          // contexts
+          [
+            "^@contexts"
+          ],
+          // hooks
+          [
+            "^@hooks"
+          ],
+          // components
+          [
+            "^@components.*(?<!helper|helpers|(s|S)tyles|(m|M)essages)$",
+            "^@oldComponents.*(?<!helper|helpers|(s|S)tyles|(m|M)essages)$"
+          ],
+          // constants
+          [
+            "^@constants"
+          ],
+          // assets
+          [
+            "^@hooks",
+            "^@permissions",
+            "^@locales",
+            "^@assets"
+          ],
+          // Absolute imports and other imports such as Vue-style `@/foo`.
+          // Anything not matched in another group.
+          [
+            "^"
+          ],
+          // Relative imports.
+          // Anything that starts with a dot.
+          [
+            "^\\."
+          ],
+          [
+            "^@styles",
+            "^@messages",
+            "^@components.*((s|S)tyles|(m|M)essages)$",
+            "^@oldComponents.*((s|S)tyles|(m|M)essages)$",
+            "^\\..*((s|S)tyles|(m|M)essages)$"
+          ]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": [
+              "@material-ui/*/*/*",
+              "!@material-ui/core/test-utils/*",
+              "!@material-ui/core/styles"
+            ],
+            "message": "Use top level imports for material ui!"
+          }
+        ],
+        "paths": [
+          {
+            "name": "@material-ui/core",
+            "importNames": [
+              "makeStyles",
+              "withStyles",
+              "createTheme",
+              "darken",
+              "useTheme",
+              "MuiThemeProvider"
+            ],
+            "message": "Please use style imports from @material-ui/core/styles instead."
+          },
+          {
+            "name": "lodash",
+            "message": "Do not use top level imports as it disabled tree shaking!"
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.tsx",
+        "**/*.ts"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      }
+    },
+    {
+      "files": [
+        "scripts/**/*.ts"
+      ],
+      "parserOptions": {
+        "project": "./scripts/tsconfig.json"
+      }
+    },
+    {
+      "files": [
+        "**/*.jsx",
+        "**/*.js"
+      ],
+      "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+      },
+      "rules": {
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-this-alias": "warn",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    }
+  ]
 }
