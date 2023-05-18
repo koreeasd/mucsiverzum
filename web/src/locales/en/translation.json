@@ -1,4 +1,10 @@
 {
   "welcome": "Welcome to Our Website!",
-  "learnMore": "Learn More"
+  "learnMore": "Learn More",
+  "buttons.bookAppointment": "Book an appointment",
+  "hero.title": "A quality look for the soul's exterior",
+  "hero.subtitle.tattoo": "tattoo",
+  "hero.subtitle.eyebrowTattoo": "eyebrow tattoo",
+  "hero.subtitle.piercing": "piercing",
+  "meta.title": "Mucsiverzum"
 }

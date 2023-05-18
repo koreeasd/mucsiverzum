@@ -4,8 +4,9 @@ import React, { useState } from 'react'
 
 import Image from 'next/image'
 
-import i18n from '../i18n'
 import { NAVIGATION_LINKS } from '@/constants'
+
+import i18n from '../i18n'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +16,7 @@ const Navbar = () => {
     setIsOpen(!isOpen)
   }
 
-  const changeLanguage = lang => {
+  function changeLanguage(lang) {
     i18n.changeLanguage(lang)
     setCurrentLang(lang)
   }

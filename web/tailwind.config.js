@@ -18,7 +18,7 @@ module.exports = {
       },
       fontFamily: {
         'sharp-sans': ['"Sharp Sans"', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
     },
   },

@@ -1,4 +1,10 @@
 {
   "welcome": "Üdvözöljük",
-  "learnMore": "Mutass többet"
+  "learnMore": "Mutass többet",
+  "buttons.bookAppointment": "Időpont foglalás",
+  "hero.title": "Minőségi megjelenés a lélek külsejéhez",
+  "hero.subtitle.tattoo": "tetoválás",
+  "hero.subtitle.eyebrowTattoo": "szemöldök tetoválás",
+  "hero.subtitle.piercing": "piercing",
+  "meta.title": "Mucsiverzum"
 }
